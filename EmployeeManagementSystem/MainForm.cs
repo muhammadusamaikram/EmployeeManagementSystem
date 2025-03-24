@@ -16,7 +16,7 @@ namespace EmployeeManagementSystem
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            // Load employees on form load
+            dataGridView1.Visible = false;  // Load employees on form load
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -46,7 +46,7 @@ namespace EmployeeManagementSystem
             if (success)
             {
                 MessageBox.Show("Employee added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadEmployees(); // Refresh the DataGridView
+                 // Refresh the DataGridView
             }
             else
             {
@@ -62,8 +62,9 @@ namespace EmployeeManagementSystem
 
         private void button2_Click(object sender, EventArgs e)
         {
+            dataGridView1.Visible = true; // Show GridView when loading employees
             DataTable dt = employeeDAL.GetAllEmployees(); // Get employees from the database
-            dataGridView1.DataSource = dt;  // Load employees into the DataGridView
+            dataGridView1.DataSource = dt; // Display in DataGridView
         }
 
         private void LoadEmployees()
